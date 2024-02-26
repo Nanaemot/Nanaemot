@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+def plot_two_variables(data, col_a, col_b):
+"""
+Plots two variables from the given data.
+
+Args:
+ data (pandas.DataFrame): The data containing the variables to be plotted.
+ col_a (str): The name of the column representing the x-axis variable.
+ col_b (str): The name of the column representing the y-axis variable.
+
+  Returns:
+   None
+   """
+   plt.scatter(data[col_a], data[col_b])
+    m, b = np.polyfit(data[col_a], data[col_b], 1)
+    plt.plot(data[col_a], m * data[col_a] + b, '-r')
+    plt.xlabel(col_a)
+    plt.ylabel(col_b)
+    plt.show()
